@@ -10,9 +10,13 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
+                            <select class="form-select mb-3" name="access" id="access" aria-label="Default select example">
+                                <option hidden selected>Account Access</option>
+                                <option value="member">Member</option>
+                                <option value="employee">Employee</option>
+                            </select>
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email" class="form-control" name="email" required
-                                    autofocus>
+                                <input type="text" placeholder="Email" id="email" class="form-control" name="email" required autofocus>
                                 @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
